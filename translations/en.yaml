@@ -2,7 +2,6 @@
 
 global.title: "Learn Promises"
 
-
 event_loop.title: "The Event Loop"
 event_loop.single_thread:
   "When working with JavaScript it is useful to think as if everything is running on a single thread. While there are some exceptions (see Web Workers) to this rule most of the time when dealing with UI code everything will be running in a single thread."
@@ -22,3 +21,15 @@ callbacks.callback_function:
   "The most common pattern for resuming code flow from the asynchronous operation is too provide a callback function which will be invoked in the future when the external resource is ready."
 callbacks.callback_example_description:
   "In the above example a callback function is passed as an argument into the <code>http</code> module's <code>get</code> method. When the response is returned from  <span class='s1'>'www.example.com'</span> the callback will be invoke with the server's response."
+
+using_promises.title: "Using Promises"
+using_promises.1:
+  "Promises build on top of the idea of callbacks to let you wrap some work with the promise that some point in the future it's callback will be called."
+using_promises.with_a_promise:
+  "Now with a different function, instead of giving a callback function we return a promise for the image. This promise will <b>resolve</b> when the image loads. A promise is a simple object with one method. Its then(function) method lets you define what to do when its work is complete or resolves."
+using_promises.can_call_later:
+  "The first benefit promises give us at this point is they always call the given callbacks, even after the event has occured. You could attach your callbacks when you first created your image element. Or way later, once the image has already loaded. In both cases, the callbacks will be called and you can know the image was loaded."
+using_promises.call_multiple_times:
+  "The second thing we can use promises for, is to attach multiple callbacks. With events you can attach many callbacks with individual calls to addEventListener. With a promise you can call then() each time for the callback you want to add."
+using_promises.configure_later:
+  "Promises really come into power once we want to separate what work is being performed and when that work is complete. If we wrapped image loading in a function you would need to handle all of the callbacks as arguments. This can be a problem if you want to split up your source and subscribe callbacks from different areas of the source. With a returned promise, your code can pass the promise around letting whatever code to attach throught the then() method."
