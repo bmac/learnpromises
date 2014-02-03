@@ -4,8 +4,8 @@
 * If needed, install [grunt](http://gruntjs.com/)
 * If needed, install jekyll `sudo gem install jekyll`
 * If needed, install [pygments](http://pygments.org/docs/installation/)
-* Build + run test server with `grunt jekyll`
-* or build only with `grunt jekyll:dev` or `grunt jekyll:prod`
+* Build with `grunt`
+* Build + run test server with `grunt serve`
 
 ## How to Translate
 
