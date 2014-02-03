@@ -12,7 +12,7 @@
 - Debugging Promises
 
 ### Advanced
-- Promise.resolve(value)
+- Promise.resolve(value) (http://esdiscuss.org/topic/promise-cast-and-promise-resolve#content-4)
 - Promise.reject(reason)
 - Promise.cast(value)
 - Promise.all(iterable)
