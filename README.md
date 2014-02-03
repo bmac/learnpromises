@@ -3,7 +3,6 @@
 * If needed, install [NPM](https://npmjs.org/)
 * If needed, install [grunt](http://gruntjs.com/)
 * If needed, install jekyll `sudo gem install jekyll`
-* If needed, install [pygments](http://pygments.org/docs/installation/)
 * Build with `grunt`
 * Build + run test server with `grunt serve`
 
