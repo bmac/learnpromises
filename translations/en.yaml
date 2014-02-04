@@ -44,7 +44,15 @@ making_promises.pre_transform:
 making_promises.after_pre_transform:
   "If instead of attaching <code class='nx'>resolve</code> as a listener we make our own listener and in it call <code class='nx'>resolve</code>, we can call resolve with the argument we want. In a lot of cases for loading an image you probably want the image itself, with a promise and its <code class='nx'>resolve</code> function we can easily pass that making <code class='nx'>loadImagePromise</code> more useful."
 
-errbacks.title: "Error Callbacks"
+errbacks.title: "Callbacks and Errors"
+errbacks.handling_errors:
+  "When dealing with asyncronous programming one of the common problems is handling errors. In a traditional syncronous code flow, throwing ean exception is an easy way to signal an error has occurred."
+errbacks.async_problems:
+  "Unfortunatly this technique doesn't work with asyncronous code because we have no way to wrap or code that will run in the future in a try, catch."
+errbacks.multi_callbacks:
+  "One common solution often used by asyncronous code is to provide two callbacks. One callback is called in the success case and provided the desired arguments. The other callback is only called when there is an unexpected error and the error is passed in as an argument."
+errbacks.node_callbacks:
+  "Another common solution which is popular in the Node.js ecosystem is to provide an error argument to a single callback. In this technique the callback is responsible for checking the error argument (typically the first argument) to identify errors."
 
 reject_catch.title: "Promises are Made to be Broken"
 reject_catch.then_reject:
