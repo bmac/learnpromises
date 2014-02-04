@@ -1,0 +1,80 @@
+---
+layout: default
+title: using_promises.title
+next: making-promises
+prev: callbacks
+num: 2
+---
+
+<p>
+  {% localize using_promises.1 %}
+</p>
+
+{% highlight js %}
+function loadImageWithCallback(src, callback) {
+  // call callback in the future when the image loads
+}
+
+loadImageWithCallback('myimage.png', function(img) {
+  // img loaded!
+});
+{% endhighlight %}
+
+<p>
+  {% localize using_promises.with_a_promise %}
+</p>
+
+{% highlight js %}
+function loadImagePromise(src) {
+  // return a promise of the future loaded image
+}
+
+loadImagePromise('myimage.png').then(function(img) {
+  // img loaded!
+});
+{% endhighlight %}
+
+<p>
+  {% localize using_promises.can_call_later %}
+</p>
+
+{% highlight js %}
+var imagePromise = loadImagePromise('myimage.png');
+
+// some time has passed and the image has completed loading
+
+imagePromise.then(function(img) {
+  // this still gets called
+});
+{% endhighlight %}
+
+<p>
+  {% localize using_promises.call_multiple_times %}
+</p>
+
+{% highlight js %}
+var imagePromise = loadImagePromise('myimage.png');
+
+imagePromise.then(function(img) {
+  // do something with the image
+});
+
+// somewhere else in the code
+
+imagePromise.then(function(img) {
+  // do something else with the image
+});
+{% endhighlight %}
+
+<p>
+  {% localize using_promises.configure_later %}
+</p>
+
+{% highlight js %}
+var imagePromise = loadImagePromise('myimage.png');
+
+// somewhere else in the code
+getImagePromise().then(function(img) {
+  // when the image loads.
+});
+{% endhighlight %}
