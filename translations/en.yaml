@@ -33,3 +33,21 @@ using_promises.call_multiple_times:
   "The second thing we can use promises for, is to attach multiple callbacks. With events you can attach many callbacks with individual calls to addEventListener. With a promise you can call then() each time for the callback you want to add."
 using_promises.configure_later:
   "Promises really come into power once we want to separate what work is being performed and when that work is complete. If we wrapped image loading in a function you would need to handle all of the callbacks as arguments. This can be a problem if you want to split up your source and subscribe callbacks from different areas of the source. With a returned promise, your code can pass the promise around letting whatever code to attach throught the then() method."
+
+making_promises.title: "Make Promises and Keeping Them"
+
+errbacks.title: "Error Callbacks"
+
+reject_catch.title: "Promises are Made to be Broken"
+
+promise_libraries.title: "Promise Libraries"
+
+chain_transform.title: "Chain Transformations"
+
+chain_async.title: "Chain Asyncronous Work"
+
+chain_rescue.title: "Rescuing a Chain"
+
+use_case_cache.title: "Use Case: Caching"
+
+debug_promises.title: "Debugging Promises"
