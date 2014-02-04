@@ -1,0 +1,31 @@
+---
+layout: default
+title: chain_transform.title
+prev: making_promises
+next: reject
+num: 6
+---
+<h1>{% localize chain_transform.title %}</h1>
+
+<p>
+  {% localize chain_transform.chaining_multiple_then_calls %}
+</p>
+
+{% highlight js %}
+
+  var promise = Promise.resolve('promises').then(function(value) {
+    return value + ' are awesome';
+  }).then(function(value) {
+    return value.toUpperCase();
+  }).then(function(value) {
+    return value + '!';
+  });
+
+  promise.then(function(value) {
+    console.log(value); // prints "PROMISES ARE AWESOME!"
+  });
+{% endhighlight %}
+
+<p>
+  {% localize chain_transform.return_a_value %}
+</p>
