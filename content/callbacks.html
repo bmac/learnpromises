@@ -1,0 +1,54 @@
+---
+layout: default
+title: callbacks.title
+next: promises
+num: 1
+---
+
+
+<section>
+  <h1>{% localize event_loop.title %}</h1>
+
+  <p class="content">
+    {% localize event_loop.single_thread %}
+  </p>
+  <p class="content">
+    {% localize event_loop.event_loop_works %}
+  </p>
+</section>
+
+<section>
+  <h1>{% localize callbacks.title %}</h1>
+  <p class="content">
+    {% localize callbacks.blocking_calls %}
+  </p>
+  {% highlight js %}
+  var response = http.get('www.example.com');
+  performUpdateWithResponse(response);
+  {% endhighlight %}
+  <p>
+    {% localize callbacks.blocking_example_description %}
+  </p>
+
+  <p>
+    {% localize callbacks.blocking_problems %}
+  </p>
+
+  <p>
+    {% localize callbacks.asynchronous_solution %}
+  </p>
+
+  <p>
+    {% localize callbacks.callback_function %}
+  </p>
+
+  {% highlight js %}
+  http.get('www.example.com', function(response) {
+    performUpdateWithResponse(response);
+  });
+  {% endhighlight %}
+
+  <p>
+    {% localize callbacks.callback_example_description %}
+  </p>
+</section>

@@ -1,3 +1,24 @@
 # English
 
 global.title: "Learn Promises"
+
+
+event_loop.title: "The Event Loop"
+event_loop.single_thread:
+  "When working with JavaScript it is useful to think as if everything is running on a single thread. While there are some exceptions (see Web Workers) to this rule most of the time when dealing with UI code everything will be running in a single thread."
+event_loop.event_loop_works:
+  "This thread is controlled by an event loop. The event loop is responsible for running functions (event handlers) in response various stimuli such as user generated actions, scheduled functions (such as setTimeout or setInterval) or network IO."
+
+callbacks.title: "Callbacks"
+callbacks.blocking_calls:
+  "In many programming languages performing actions which may need to wait on external resources such as the network results in blocking the thread and prevents subsequent functions from running until the blocking call is complete."
+callbacks.blocking_example_description:
+  "In the above code the <code>http.get</code> call will block and the <code>performUpdateWithResponse</code> function will not run until the response has been fetched from the remote server."
+callbacks.blocking_problems:
+  "Unfortunately, this pattern is problematic when programming in the browser because blocking the main thread effectively pauses the event loop and prevents any user interactions from being handled. This results in a very unsatisfying user experience."
+callbacks.asynchronous_solution:
+  "The common solution to this problem is to perform the blocking operation asynchronously. This means the process will yield control back to the event loop while waiting for the network IO to be completed."
+callbacks.callback_function:
+  "The most common pattern for resuming code flow from the asynchronous operation is too provide a callback function which will be invoked in the future when the external resource is ready."
+callbacks.callback_example_description:
+  "In the above example a callback function is passed as an argument into the <code>http</code> module's <code>get</code> method. When the response is returned from  <span class='s1'>'www.example.com'</span> the callback will be invoke with the server's response."
