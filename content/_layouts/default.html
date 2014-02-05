@@ -8,8 +8,35 @@
     <link rel="stylesheet" href="/css/pygment.default.css"/>
   </head>
   <body class="{% rtl %}">
+    <div class="toc">
+    <h3>Table of Contents</h3>
+    <ul>
+      <li><a href="callbacks.html">{% localize callbacks.title %}</a></li>
+      <li><a href="using-promises.html">{% localize using_promises.title %}</a></li>
+      <li><a href="making-promises.html">{% localize making_promises.title %}</a></li>
+      <li><a href="errbacks.html">{% localize errbacks.title %}</a></li>
+      <li><a href="reject-catch.html">{% localize reject_catch.title %}</a></li>
+      <li><a href="promise-libraries.html">{% localize promise_libraries.title %}</a></li>
+      <li><a href="chain-transform.html">{% localize chain_transform.title %}</a></li>
+      <li><a href="chain-async.html">{% localize chain_async.title %}</a></li>
+      <li><a href="chain-rescue.html">{% localize chain_rescue.title %}</a></li>
+      <li><a href="use-case-cache.html">{% localize use_case_cache.title %}</a></li>
+      <li><a href="debug-promises">{% localize debug_promises.title %}</a></li>
+    </ul>
+    </div>
+
     <div>
       {{ content }}
+    </div>
+
+    <div>
+      {% if page.prev %}
+      <a href="{{ page.prev }}.html">Prev</a>
+      {% endif %}
+
+      {% if page.next %}
+      <a href="{{ page.next }}.html">Next</a>
+      {% endif %}
     </div>
   </body>
 </html>
