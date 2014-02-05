@@ -45,6 +45,10 @@ promise_libraries.title: "Promise Libraries"
 chain_transform.title: "Chain Transformations"
 
 chain_async.title: "Chain Asyncronous Work"
+chain_async.async_series:
+  "Promises work great in the cases where you need to perform multiple asynchronous actions in a series. You can just return a new promise from a promise's then callback and future promises will wait on that promise to be resolved before continuing."
+chain_async.combining_concepts:
+  "Combining value transformation and waiting on multiple promises is a powerful way to build clean reusable asynchronous code."
 
 chain_rescue.title: "Rescuing a Chain"
 
