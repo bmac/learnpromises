@@ -1,0 +1,53 @@
+---
+layout: default
+title: making_promises.title
+next: promises-are-made-to-be-broken
+prev: using-promises
+num: 3
+---
+
+<p>{% localize making_promises.about_loadImagePromise %}</p>
+
+{% highlight js %}
+function loadImagePromise(src) {
+  // return a promise of the future loaded image
+}
+{% endhighlight %}
+
+<p>{% localize making_promises.define_loadImagePromise %}</p>
+
+{% highlight js %}
+function loadImagePromise(src) {
+  var image = new Image();
+  var promise = new Promise(function(resolve) {
+    // attach resolve as image.onload's callback
+    image.onload = resolve;
+  });
+  image.src = src;
+  return promise;
+}
+{% endhighlight %}
+
+<p>{% localize making_promises.pre_transform %}</p>
+
+{% highlight js %}
+function loadImagePromise(src) {
+  var image = new Image();
+  var promise = new Promise(function(resolve) {
+    // attach a listener that will resolve with the image itself
+    image.onload = function() {
+      resolve(image);
+    };
+  });
+  image.src = src;
+  return promise;
+}
+{% endhighlight %}
+
+<p>{% localize making_promises.after_pre_transform %}</p>
+
+{% highlight js %}
+loadImagePromise(src).then(function(image) {
+  // do work with the image instead of an event
+});
+{% endhighlight %}

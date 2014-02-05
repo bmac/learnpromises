@@ -35,6 +35,14 @@ using_promises.configure_later:
   "Promises really come into power once we want to separate what work is being performed and when that work is complete. If we wrapped image loading in a function you would need to handle all of the callbacks as arguments. This can be a problem if you want to split up your source and subscribe callbacks from different areas of the source. With a returned promise, your code can pass the promise around letting whatever code to attach throught the then() method."
 
 making_promises.title: "Make Promises and Keeping Them"
+making_promises.about_loadImagePromise:
+  "On the last page we used <code class='nx'>loadImagePromise</code>. Now let's define what that actually does."
+making_promises.define_loadImagePromise:
+  "A common pattern for loading an image with JavaScript is to create an <code class='nx'>Image</code> element, attach some listeners, set the <code class='nx'>src</code> field to load and wait. Where we attach the listeners is where we can create our promise."
+making_promises.pre_transform:
+  "The <code class='nx'>Promise</code> constructor has one argument. The function you pass will be immediately be called and handed the <code class='nx'>resolve</code> function that the scope of the function can deal with however it desires. In our image loading use case, we could simply attach <code class='nx'>resolve</code> as the listener. But we can take the work step further."
+making_promises.after_pre_transform:
+  "If instead of attaching <code class='nx'>resolve</code> as a listener we make our own listener and in it call <code class='nx'>resolve</code>, we can call resolve with the argument we want. In a lot of cases for loading an image you probably want the image itself, with a promise and its <code class='nx'>resolve</code> function we can easily pass that making <code class='nx'>loadImagePromise</code> more useful."
 
 errbacks.title: "Error Callbacks"
 
