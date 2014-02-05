@@ -39,6 +39,18 @@ making_promises.title: "Make Promises and Keeping Them"
 errbacks.title: "Error Callbacks"
 
 reject_catch.title: "Promises are Made to be Broken"
+reject_catch.then_reject:
+  "<code class='nx'>then</code> in ES6 Promises has two arguments. We covered the first, <code class='nx'>resolve</code>, but it also has a second called <code class='nx'>reject</code>. This means <code class='nx'>then</code> follows the two function pattern for callbacks and error callbacks."
+reject_catch.handle_reject:
+  "Like <code class='nx'>resolve</code> handlers, <code class='nx'>reject</code> handlers take one argument. Commonly, they will be an instance of an <code class='nx'>Error</code>. But they could be any value. The reject handler being called is how you know something went wrong."
+reject_catch.making_broken_promise:
+  "In <a href='making-promises.html'>Make Promises and Keeping Them</a>, we presented how to make a promise and resolve it. Now we can add to <code class='nx'>loadImagePromise</code> and allow the returned promise to deal with errors that can occur in loading an image. Like <code class='nx'>then</code> the <code class='nx'>Promise</code> argument gets a second function that is used for rejecting the promise."
+reject_catch.try_catch_wrapper:
+  "Promises wrap each call to a <code class='nx'>then</code> handler with an implicit <code class='nx'>try</code>/<code class='nx'>catch</code>. This can be confusing when debugging as it can gobble up errors from the code that first calls a promise's <code class='nx'>reject</code> as well as gobble up errors in your code in a promise callback. To deal with this we can add a reject handler after our first <code class='nx'>then</code>."
+reject_catch.simple_chain:
+  "Promises have a nice convenience method called <code class='nx'>catch</code> that takes one argument, a reject handler. It is shorthand for calling <code class='nx'>then</code> with <code class='kc'>undefined</code> as the first argument and a reject handler. This <code class='nx'>catch</code> method is really great for creating a simple way to handle errors in your own code from an earlier <code class='nx'>then</code>."
+reject_catch.always_handle_errors:
+  "By default promises provide a way to interact with errors but don't do anything themselves. If your reject handler does not do anything with an error, nothing will be done. If you want it to print the error, you will need to set a handler to do so."
 
 promise_libraries.title: "Promise Libraries"
 
