@@ -7,3 +7,22 @@ body.rtl {
      -moz-box-sizing: border-box;
           box-sizing: border-box;
 }
+
+.toc {
+  display: flex;
+}
+
+.toc h3, ul {
+  display: inline;
+  margin: 10px;
+}
+
+.toc ul {
+  flex: 1;
+  vertical-align: bottom;
+  padding: 0;
+}
+
+.toc li {
+  display: inline-block;
+}
