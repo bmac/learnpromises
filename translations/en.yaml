@@ -41,6 +41,13 @@ errbacks.title: "Error Callbacks"
 reject_catch.title: "Promises are Made to be Broken"
 
 promise_libraries.title: "Promise Libraries"
+promise_libraries.next_version_of_js:
+  "ES6, the next version of JavaScript, will have promises built into the language. Unfortunately, until ES6 promises are implemented by all browsers, a promise library will be needed when using promises to ensure consistent support."
+promise_libraries.many_libraries:
+  "There are many existing battle tested libraries that people have been using for years to take advantage of promises in their code. You may want to consider using one of these libraries to ensure promises work as expected in all the browsers you support."
+promise_libraries.working_together:
+  "Luckily, all of these promise libraries are interoperable with each other and ES6 promises. That means if you can use the promises created by one library with promises created by other libraries or ES6."
+  
 
 chain_transform.title: "Chain Transformations"
 
