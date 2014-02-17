@@ -1,0 +1,78 @@
+---
+layout: default
+title: chain_rescue.title
+next: use-case-cache
+prev: chain-async
+num: 9
+---
+
+<h1>{% localize chain_rescue.title %}</h1>
+
+<p>{% localize chain_rescue.return_to_rescue %}</p>
+
+{% highlight js %}
+loadImagePromise('myimage.png')
+  .catch(function(err) {
+    // loading the specified image failed,
+    // load a tiny transparent gif instead
+    return loadImagePromise(blankGifDataUrl);
+  })
+  .then(function(image) {
+    // now we know that it is a safe bet this will show an image
+    document.body.appendChild(image);
+  });
+{% endhighlight %}
+
+<p>{% localize chain_rescue.throw_to_reject %}</p>
+
+{% highlight js %}
+loadImagePromise('myimage.png')
+  .then(function(image) {
+    if (image.width !== image.height) {
+      throw new NonSquareImageError(image);
+    }
+    return image;
+  })
+  .catch(function(err) {
+    if (err instanceof NonSquareImageError) {
+      // use a canvas to generate a square image
+      // return that generated image (or promise to an image)
+      return coerceSquareImage(err.image);
+    }
+    // re-throw the error to let a further handler deal with it
+    throw err;
+  })
+  .catch(function(err) {
+    // at this point an error could have happened in loadImagePromise
+    // or coerceSquareImage, try and catch all.
+    return loadImagePromise(blankGifDataUrl);
+  })
+  .then(function(image) {
+    document.body.appendChild(image);
+  })
+  .catch(function(err) {
+    // just in case anything still went wrong, we can log that to find out
+    console.error(err.stack || err);
+  });
+{% endhighlight %}
+
+<p>{% localize chain_rescue.describe_first_then %}</p>
+
+<p>{% localize chain_rescue.describe_first_reject %}</p>
+
+<p>{% localize chain_rescue.describe_second_reject %}</p>
+
+<p>{% localize chain_rescue.describe_final_reject %}</p>
+
+<p>{% localize chain_rescue.generalize_fn_example %}</p>
+
+{% highlight js %}
+loadImagePromise('myimage.png')
+  .then(assertSquareImage)
+  .catch(coerceSquareImageFromError)
+  .catch(loadImagePromise.bind(undefined, blankGifDataUrl))
+  .then(document.body.appendChild.bind(document.body))
+  .catch(logError);
+{% endhighlight %}
+
+<p>{% localize chain_rescue.then_has_two_arguments %}</p>
