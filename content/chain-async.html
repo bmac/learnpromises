@@ -1,0 +1,43 @@
+---
+layout: default
+title: chain-async.title
+prev: chain-transform
+next: chain-rescue
+num: 8
+---
+
+
+<section>
+  <h1>{% localize chain-async.title %}</h1>
+
+  <p>
+    {% localize chain_async.async_series %}
+  </p>
+
+  {% highlight js %}
+  http.get('www.example.com/post/1').then(function(post) {
+    return http.get('www.example.com/user/' + post.user_id);
+  }).then(function(user) {
+    // Perform some action after the 2nd ajax request has been fulfilled.
+  });
+  {% endhighlight %}
+
+  <p>
+    {% localize chain_async.combining_concepts %}
+  </p>
+
+  {% highlight js %}
+  function getUserForPost(id) {
+    return http.get('www.example.com/post/' + id)
+      .then(JSON.parse)
+      .then(function(post) {
+        return http.get('www.example.com/user/' + post.user_id);
+      }).then(JSON.parse);
+  }
+
+  var promise = getUserForPost(1);
+
+  promise.then(updateUIWithUser);
+  {% endhighlight %}
+
+</section>
