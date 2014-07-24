@@ -63,6 +63,12 @@ reject_catch.always_handle_errors:
 promise_libraries.title: "Promise Libraries"
 
 chain_transform.title: "Chain Transformations"
+chain_transform.chaining_multiple_then_calls:
+  "One of the neat things about promises is you can chain multiple <code>then</code> calls to transform the resulting value."
+chain_transform.return_a_value:
+  "When you return a value from a promise it will be used as the value of the next promise. This is useful in cases where you may want to do some data transformation after an asynchronous action has been completed."
+chain_transform.rejected_reminder:
+  "One thing that is important to remember when transforming data with promises is that any errors that are throw inside the then callback will be caught by the promise and cause the next promise to be in the rejected state. This is useful for collecting error and responding to them in the future but it may make it difficult to diagnose errors if you are not checking the promises rejected state."
 
 chain_async.title: "Chain Asyncronous Work"
 
