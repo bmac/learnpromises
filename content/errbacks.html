@@ -1,0 +1,52 @@
+---
+layout: default
+title: errbacks.title
+prev: making_promises
+next: reject
+num: 4
+---
+
+<h1>{% localize errbacks.title %}</h1>
+
+<p>
+  {% localize errbacks.handling_errors %}
+</p>
+
+{% highlight js %}
+  try {
+    var response = http.get('www.example.com');
+    performUpdateWithResponse(response);
+  } catch (err) {
+    handleError(err);
+  }
+{% endhighlight %}
+
+<p>
+  {% localize errbacks.async_problems %}
+</p>
+
+<p>
+  {% localize errbacks.multi_callbacks %}
+</p>
+
+{% highlight js %}
+  http.get('www.example.com', function(response) {
+    performUpdateWithResponse(response);
+  }, function(err) {
+    handleError(err);
+  });
+{% endhighlight %}
+
+
+<p>
+  {% localize errbacks.node_callbacks %}
+</p>
+
+{% highlight js %}
+  http.get('www.example.com', function(err, response) {
+    if (err) {
+      return handleError(err);
+    }
+    performUpdateWithResponse(response);
+  });
+{% endhighlight %}
